@@ -8,7 +8,7 @@ window.snapKitInit = function() {
     handleResponseCallback: function() {
       snap.loginkit
         .fetchUserInfo()
-        .then(data => {console.log("User info:", data); window.location = "/users"});
+        .then(data => {localStorage.setItem(data); console.log("User info:", data); window.location = "/users"});
     }
   });
 };
