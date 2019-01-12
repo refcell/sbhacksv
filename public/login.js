@@ -2,8 +2,8 @@ window.snapKitInit = function() {
   var loginButtonIconId = "my-login-button-target";
   // Mount Login Button
   snap.loginkit.mountButton(loginButtonIconId, {
-    clientId: "ba203951-66a7-46b5-8f95-119f19214ccb",
-    redirectURI: "http://localhost:3000/users",
+    clientId: "b05d25df-3fea-49f3-b6a2-d1af002ce3dc",
+    redirectURI: "http://localhost:5000/users/newuser",
     scopeList: ["user.display_name", "user.bitmoji.avatar"],
     handleResponseCallback: function() {
       snap.loginkit
@@ -22,4 +22,4 @@ window.snapKitInit = function() {
   js.id = id;
   js.src = "https://sdk.snapkit.com/js/v1/login.js";
   sjs.parentNode.insertBefore(js, sjs);
-})(document, "script", "loginkit-sdk");
+}(document, "script", "loginkit-sdk"));
