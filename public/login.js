@@ -3,12 +3,12 @@ window.snapKitInit = function() {
   // Mount Login Button
   snap.loginkit.mountButton(loginButtonIconId, {
     clientId: "b05d25df-3fea-49f3-b6a2-d1af002ce3dc",
-    redirectURI: "http://localhost:5000/users/newuser",
+    redirectURI: "http://localhost:3000/users",
     scopeList: ["user.display_name", "user.bitmoji.avatar"],
     handleResponseCallback: function() {
       snap.loginkit
         .fetchUserInfo()
-        .then(data => console.log("User info:", data));
+        .then(data => {console.log("User info:", data); window.location = "/users"});
     }
   });
 };

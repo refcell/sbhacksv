@@ -10,8 +10,4 @@ router.post("/newuser", function(req, res) {
   res.send("First post run worked successfully!");
 });
 
-router.get("/newuser", function(req, res, next){
-  res.send("First post run worked successfully!");
-});
-
 module.exports = router;
