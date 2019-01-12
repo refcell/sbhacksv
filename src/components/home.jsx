@@ -10,7 +10,7 @@ class Home extends Component {
           display: "table-cell"
         }}
       >
-        <h1 className="center m-4" style={{ color: "white" }}>
+        <h1 className="center m-4" style={{ fontSize: "40px", color: "white" }}>
           SNAP-VOTE
         </h1>
         <div id="my-login-button-target" />

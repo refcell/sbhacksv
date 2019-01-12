@@ -2,8 +2,8 @@ window.snapKitInit = async function() {
   var loginButtonIconId = "my-login-button-target";
   // Mount Login Button
   await snap.loginkit.mountButton(loginButtonIconId, {
-    clientId: "ba203951-66a7-46b5-8f95-119f19214ccb",
-    redirectURI: "https://snap-vote.herokuapp.com/users",
+    clientId: "b05d25df-3fea-49f3-b6a2-d1af002ce3dc",
+    redirectURI: "https://www.snap-vote.herokuapp.com/users",
     scopeList: ["user.display_name", "user.bitmoji.avatar"],
     handleResponseCallback: function() {
       snap.loginkit.fetchUserInfo().then(data => {
