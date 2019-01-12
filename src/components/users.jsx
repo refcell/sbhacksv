@@ -15,6 +15,12 @@ firebase.initializeApp(config);
 
 var data = firebase.database();
 
+var nme = localStorage.getItem("userSnap");
+nme = nme.replace('https://sdk.bitmoji.com/render/panel/', '');
+console.log(nme);
+nme = nme.substring(0, nme.indexOf('.'));
+console.log(nme);
+
 
 class Users extends Component {
   componentDidMount() {}
@@ -40,9 +46,10 @@ class Users extends Component {
               className="btn m-2 btn-lg btn-outline-danger"
               style={btnStyle}
               onClick={() => { data.ref('usc/').set({
+              [nme]: {
                 name: localStorage.getItem("userName"),
-                profile_picture : localStorage.getItem("userSnap"),
-  });
+                profile_picture: localStorage.getItem("userSnap"),
+  }});
 test();
 
   }}
@@ -53,9 +60,10 @@ test();
               className="btn m-2 btn-lg btn-outline-primary"
               style={btnStyle}
               onClick={() => { data.ref('ucla/').set({
+              [nme]: {
                 name: localStorage.getItem("userName"),
-                profile_picture : localStorage.getItem("userSnap"),
-  });
+                profile_picture: localStorage.getItem("userSnap"),
+  }});
 
   window.location.replace("http://localhost:3000/voted");
 
