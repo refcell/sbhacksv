@@ -3,7 +3,7 @@ window.snapKitInit = function() {
   // Mount Login Button
   snap.loginkit.mountButton(loginButtonIconId, {
     clientId: "ba203951-66a7-46b5-8f95-119f19214ccb",
-    redirectURI: "/",
+    redirectURI: "http://localhost:3000/users",
     scopeList: ["user.display_name", "user.bitmoji.avatar"],
     handleResponseCallback: function() {
       snap.loginkit
