@@ -2,7 +2,11 @@ import React, { Component } from "react";
 
 class Users extends Component {
   render() {
-    return <p>Main page loaded!</p>;
+    return (
+      <React.Fragment>
+        <img src={localStorage.getItem("userSnap")}></img>
+      </React.Fragment>
+    );
   }
 }
 
