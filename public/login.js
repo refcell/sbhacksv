@@ -2,8 +2,8 @@ window.snapKitInit = function() {
   var loginButtonIconId = "my-login-button-target";
   // Mount Login Button
   snap.loginkit.mountButton(loginButtonIconId, {
-    clientId: "ee41108b-55a2-425e-a5d0-b04817745293",
-    redirectURI: "https://snap-vote.com/content",
+    clientId: "ba203951-66a7-46b5-8f95-119f19214ccb",
+    redirectURI: "/",
     scopeList: ["user.display_name", "user.bitmoji.avatar"],
     handleResponseCallback: function() {
       snap.loginkit
