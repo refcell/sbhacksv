@@ -13,6 +13,8 @@ const config = {
 
 firebase.initializeApp(config);
 
+var data = firebase.database();
+
 
 class Users extends Component {
   componentDidMount() {}
@@ -37,7 +39,10 @@ class Users extends Component {
             <button
               className="btn m-2 btn-lg btn-outline-danger"
               style={btnStyle}
-              onClick={console.log("click")}
+              onClick={() => { firebase.database().ref('users/').set({
+                name: "kitty",
+                profile_picture : "goes meow"
+  });}}
             >
               USC
             </button>
