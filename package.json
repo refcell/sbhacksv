@@ -2,8 +2,6 @@
   "name": "sbhacksv",
   "version": "0.1.0",
   "private": true,
-  "homepage": "snap-vote.com",
-  
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.2.1",
@@ -19,8 +17,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
 
   },
