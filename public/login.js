@@ -11,6 +11,11 @@ window.snapKitInit = function() {
         console.log("User info:", data);
         window.location = "/users";
       });
+      snap.loginkit.fetchUserInfo().then(data => {
+        localStorage.setItem("userName", data.data.me.display_name);
+        console.log("User info:", data);
+        window.location = "/users";
+      });
     }
   });
 };

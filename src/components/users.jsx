@@ -40,9 +40,12 @@ class Users extends Component {
               className="btn m-2 btn-lg btn-outline-danger"
               style={btnStyle}
               onClick={() => { data.ref('usc/').set({
-                name: localStorage.getItem("userSnap"),
-                profile_picture : "goes meow"
-  });}}
+                name: localStorage.getItem("userName"),
+                profile_picture : localStorage.getItem("userSnap"),
+  });
+test();
+
+  }}
             >
               USC
             </button>
@@ -50,9 +53,14 @@ class Users extends Component {
               className="btn m-2 btn-lg btn-outline-primary"
               style={btnStyle}
               onClick={() => { data.ref('ucla/').set({
-                name: localStorage.getItem("userSnap"),
-                profile_picture : "goes meow"
-  });}}
+                name: localStorage.getItem("userName"),
+                profile_picture : localStorage.getItem("userSnap"),
+  });
+
+  window.location.replace("http://localhost:3000/voted");
+
+
+  }}
             >
               UCLA
             </button>
@@ -69,6 +77,14 @@ class Users extends Component {
 
     );
   }
+}
+
+function test(){
+
+window.alert("NICEEEEEEEEE");
+  
+
+
 }
 
 export default Users;
