@@ -1,7 +1,7 @@
 ## snap-vote
-Submission for SBHacks V
-Akhil Arun, Andreas Bigger, Bryan Huang, Ralph Sun 
 
+Submission for SBHacks V
+Akhil Arun, Andreas Bigger, Bryan Huang, Ralph Sun
 
 SnapVote - voice your opinions!
 //embed an image
@@ -20,15 +20,15 @@ The user logs in through their snapchat account, allowing us to access their bit
 
 # How we built it
 
-We built the front end in React.js. We wanted to make the experience logging through Snapchat and participating in discussion fluid and simple. We focused on the UI/UX design of the website, styling the site after Snap's User Interface and making it DEAD simple. 
+We built the front end in React.js. We wanted to make the experience logging through Snapchat and participating in discussion fluid and simple. We focused on the UI/UX design of the website, styling the site after Snap's User Interface and making it DEAD simple.
 
 We employed Google Cloud Platform to host the site. Finding a domain name that was memorable and useful was also really easy through domain.com. We were able to snag snap-vote.com!
 
-Our main component was the snap kit SDK. With almost every college student on Snapchat, we leveraged this to 
+Our main component was the snap kit SDK. With almost every college student on Snapchat, we leveraged this to
 
 # Challenges
 
-Some challenges we approached was the relatively new and limited snap kit. Unfortunately, the support for web applications was rather limited with Snapchat integration and there wasn't too much documentation on how to approach those limitations. 
+Some challenges we approached was the relatively new and limited snap kit. Unfortunately, the support for web applications was rather limited with Snapchat integration and there wasn't too much documentation on how to approach those limitations.
 
 # Accomplishments that we're proud of
 
@@ -53,6 +53,8 @@ We are interested in adding more features to make the discourse a bit more inter
     - domain.com domain name and 1 year of domain privacy
     - snap kit SDK OAuth
     - snap kit bitmoji library
+    - heroku
+    - firebase
 
 #Try it out
-[snap-vote.com] (https://snap-vote.com)
+[snap-vote.com](https://snap-vote.com)
