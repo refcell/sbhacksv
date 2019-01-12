@@ -45,7 +45,7 @@ class Users extends Component {
             <button
               className="btn m-2 btn-lg btn-outline-danger"
               style={btnStyle}
-              onClick={() => { data.ref('usc/').set({
+              onClick={() => { data.ref('usc/').update({
               [nme]: {
                 name: localStorage.getItem("userName"),
                 profile_picture: localStorage.getItem("userSnap"),
@@ -59,7 +59,7 @@ test();
             <button
               className="btn m-2 btn-lg btn-outline-primary"
               style={btnStyle}
-              onClick={() => { data.ref('ucla/').set({
+              onClick={() => { data.ref('ucla/').update({
               [nme]: {
                 name: localStorage.getItem("userName"),
                 profile_picture: localStorage.getItem("userSnap"),
