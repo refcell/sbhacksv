@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 
 class Users extends Component {
-  componentDidMount() {}
+  state = {
+    option1: [],
+    option2: []
+  };
+
+  componentDidMount() {
+    //call firebase to get current user data.
+    //set state when updated
+  }
 
   render() {
     const btnStyle = {

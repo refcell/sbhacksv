@@ -1,0 +1,6 @@
+{
+  "OAUTH2_ID_DEV": "b05d25df-3fea-49f3-b6a2-d1af002ce3dc",
+  "OAUTH2_ID_PROD": "ba203951-66a7-46b5-8f95-119f19214ccb",
+  "REDIRECT_URI_DEV": "http://localhost:3000/users",
+  "REDIRECT_URI_PROD": "http://snap-vote.herokuapp.com/users"
+}
