@@ -12,7 +12,7 @@ window.snapKitInit = function() {
         window.location = "/users";
       });
       snap.loginkit.fetchUserInfo().then(data => {
-        localStorage.setItem("userName", data.data.me.display_name);
+        localStorage.setItem("userName", data.data.me.displayName);
         console.log("User info:", data);
         window.location = "/users";
       });
