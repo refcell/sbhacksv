@@ -39,8 +39,8 @@ class Users extends Component {
             <button
               className="btn m-2 btn-lg btn-outline-danger"
               style={btnStyle}
-              onClick={() => { firebase.database().ref('users/').set({
-                name: "kitty",
+              onClick={() => { data.ref('usc/').set({
+                name: localStorage.getItem("userSnap"),
                 profile_picture : "goes meow"
   });}}
             >
@@ -49,6 +49,10 @@ class Users extends Component {
             <button
               className="btn m-2 btn-lg btn-outline-primary"
               style={btnStyle}
+              onClick={() => { data.ref('ucla/').set({
+                name: localStorage.getItem("userSnap"),
+                profile_picture : "goes meow"
+  });}}
             >
               UCLA
             </button>
