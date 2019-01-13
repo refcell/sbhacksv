@@ -75,6 +75,10 @@ class Users extends Component {
      {
       var temp = length-5;
     }
+    else
+    {
+      var temp = -1;
+    }
 
     console.log(temp);
 
