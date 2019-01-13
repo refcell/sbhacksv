@@ -50,7 +50,7 @@ class Users extends Component {
                 name: localStorage.getItem("userName"),
                 profile_picture: localStorage.getItem("userSnap"),
   }});
-test();
+window.location.replace("http://localhost:3000/voted");
 
   }}
             >
