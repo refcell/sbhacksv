@@ -107,7 +107,7 @@ class Users extends Component {
      <div className='app'>
        <header>
            <div className='wrapper'>
-             <h1>Snap Vote</h1>
+             <h1>Snap Poll</h1>
            </div>
        </header>
        <div className='container'>

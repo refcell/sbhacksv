@@ -11,7 +11,7 @@ class Home extends Component {
         }}
       >
         <h1 className="center m-4" style={{ color: "white" }}>
-          SNAP-VOTE
+          SNAP POLLS
         </h1>
         <div id="my-login-button-target" />
       </div>
