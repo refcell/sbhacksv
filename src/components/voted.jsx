@@ -22,6 +22,7 @@ class Users extends Component {
    super();
    this.state = {
      username: localStorage.getItem("userName"),
+     curCode: '',
      currentItem: '',
      picture: localStorage.getItem("userSnap"),
      items: []
@@ -35,11 +36,13 @@ class Users extends Component {
    const item = {
      title: this.state.currentItem,
      user: this.state.username,
-     pic: this.state.picture
+     pic: this.state.picture,
+     code: this.state.curCode
    }
    itemsRef.push(item);
    this.setState({
      currentItem: '',
+     curCode: '',
      username: ''
    });
    itemsRef.on('value', (snapshot) => {
@@ -51,6 +54,12 @@ class Users extends Component {
      [e.target.name]: e.target.value
    });
  }
+ handleRoll(e){
+console.log("dafd");
+  e.src = "https://feelinsonice-hrd.appspot.com/web/deeplink/snapcode?username=akhil_arun&type=SVG";
+
+
+ }
  componentDidMount() {
    const itemsRef = firebase.database().ref('items');
    itemsRef.on('value', (snapshot) => {
@@ -61,7 +70,9 @@ class Users extends Component {
          id: item,
          title: items[item].title,
          user: items[item].user,
-         pic: items[item].pic
+         pic: items[item].pic,
+         code: items[item].code
+
        });
      }
      this.setState({
@@ -82,6 +93,7 @@ class Users extends Component {
          <p>Vims or Emacs? </p>
            <form onSubmit={this.handleSubmit}>
              <input type="text" name="currentItem" placeholder="Why? (optional)" onChange={this.handleChange} value={this.state.currentItem} />
+             <input type="text" name="curCode" placeholder="Snap User" onChange={this.handleChange} value={this.state.curCode} />
              <p2>You can only vote once!</p2>
              <button>Send</button>
            </form>
@@ -89,8 +101,14 @@ class Users extends Component {
          </div>
          <div
       >
+
+
+
+
+
          <section className='display-item'>
                     <div
+
         style={{
           textAlign: "center",
           verticalAlign: "middle",
@@ -102,19 +120,42 @@ class Users extends Component {
                  return (
                    <li key={item.id}>
                      <h3>{item.title}</h3>
-                     <p><img src ={item.pic} /> 
+                     <p>
+                     <img src ={item.pic} 
+    onMouseOver={e => (e.currentTarget.src = "https://feelinsonice-hrd.appspot.com/web/deeplink/snapcode?username=" + item.code + "&type=SVG")}
+    onMouseLeave={e => (e.currentTarget.src = item.pic)}/>
+
+
                         <h4>{item.user} </h4></p>
+
                    </li>
                  )
                })}
              </ul>
+
+
            </div>
          </section>
        </div>
+
+
+
+
+
      </div>
+
    );
+
+
+
+
+
  }
 }
+
+
+
+
 export default Users;
 
 

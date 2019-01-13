@@ -3,18 +3,18 @@ window.snapKitInit = function() {
   // Mount Login Button
   snap.loginkit.mountButton(loginButtonIconId, {
     clientId: "b05d25df-3fea-49f3-b6a2-d1af002ce3dc",
-    redirectURI: "http://localhost:3000/users",
+    redirectURI: "http://localhost:3000/voted",
     scopeList: ["user.display_name", "user.bitmoji.avatar"],
     handleResponseCallback: function() {
       snap.loginkit.fetchUserInfo().then(data => {
         localStorage.setItem("userSnap", data.data.me.bitmoji.avatar);
         console.log("User info:", data);
-        window.location = "/users";
+        window.location = "/voted";
       });
       snap.loginkit.fetchUserInfo().then(data => {
         localStorage.setItem("userName", data.data.me.displayName);
         console.log("User info:", data);
-        window.location = "/users";
+        window.location = "/voted";
       });
     }
   });

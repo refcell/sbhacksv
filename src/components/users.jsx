@@ -80,6 +80,9 @@ window.location.replace("http://localhost:3000/voted");
             style={{ width: "100px" }}
             src={localStorage.getItem("userSnap")}
           />
+          <img
+          src="https://accounts.snapchat.com/accounts/snapcodes?type=svg"
+          />
         </div>
       </div>
 
