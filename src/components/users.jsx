@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import firebase from 'firebase';
 
-
 const config = {
-      apiKey: "AIzaSyCbRZwXF2eXe2DpLNeWBDW8N4I8WDOVge8",
-      authDomain: "snap-vote-77029.firebaseapp.com",
-      databaseURL: "https://snap-vote-77029.firebaseio.com",
-      projectId: "snap-vote-77029",
-      storageBucket: "snap-vote-77029.appspot.com",
-      messagingSenderId: "332977921881"
+  apiKey: "AIzaSyCbRZwXF2eXe2DpLNeWBDW8N4I8WDOVge8",
+  authDomain: "snap-vote-77029.firebaseapp.com",
+  databaseURL: "https://snap-vote-77029.firebaseio.com",
+  projectId: "snap-vote-77029",
+  storageBucket: "snap-vote-77029.appspot.com",
+  messagingSenderId: "332977921881"
 };
 
 firebase.initializeApp(config);
@@ -23,8 +22,6 @@ console.log(nme);
 
 
 class Users extends Component {
-  componentDidMount() {}
-
   render() {
     const btnStyle = {
       borderWidth: "2px",
@@ -45,30 +42,34 @@ class Users extends Component {
             <button
               className="btn m-2 btn-lg btn-outline-danger"
               style={btnStyle}
-              onClick={() => { data.ref('usc/').update({
-              [nme]: {
-                name: localStorage.getItem("userName"),
-                profile_picture: localStorage.getItem("userSnap"),
-  }});
-test();
+              onClick={() => {
+                data.ref('usc/').update({
+                  [nme]: {
+                    name: localStorage.getItem("userName"),
+                    profile_picture: localStorage.getItem("userSnap"),
+                  }
+                });
+                test();
 
-  }}
+              }}
             >
               USC
             </button>
             <button
               className="btn m-2 btn-lg btn-outline-primary"
               style={btnStyle}
-              onClick={() => { data.ref('ucla/').update({
-              [nme]: {
-                name: localStorage.getItem("userName"),
-                profile_picture: localStorage.getItem("userSnap"),
-  }});
+              onClick={() => {
+                data.ref('ucla/').update({
+                  [nme]: {
+                    name: localStorage.getItem("userName"),
+                    profile_picture: localStorage.getItem("userSnap"),
+                  }
+                });
 
-  window.location.replace("http://localhost:3000/voted");
+                window.location.replace("http://localhost:3000/voted");
 
 
-  }}
+              }}
             >
               UCLA
             </button>
@@ -87,10 +88,10 @@ test();
   }
 }
 
-function test(){
+function test() {
 
-window.alert("NICEEEEEEEEE");
-  
+  window.alert("NICEEEEEEEEE");
+
 
 
 }

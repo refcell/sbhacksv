@@ -1,4 +1,3 @@
-
 window.snapKitInit = function () {
   var loginButtonIconId = "my-login-button-target";
   // Mount Login Button
