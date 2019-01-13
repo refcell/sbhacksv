@@ -8,13 +8,13 @@ window.snapKitInit = function () {
     handleResponseCallback: function () {
       snap.loginkit
         .fetchUserInfo()
-        .then(data => {
+        .then(async data => {
           localStorage.setItem("userSnap", data.data.me.bitmoji.avatar);
           localStorage.setItem("userName", data.data.me.displayName);
           console.log("User info:", data);
+
+          await window.history.forward();
           window.location = "/users";
-          window.history.back();
-          window.history.forward();
         })
         .catch(e => {
           console.log(e);
