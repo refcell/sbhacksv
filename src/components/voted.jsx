@@ -14,34 +14,45 @@ const config = {
 
 
 var data = firebase.database();
+var num = 0;
+
+
+
 
 
 
 
 class Users extends Component {
   componentDidMount() {
-
-            var ref = data.ref("snap-vote-77029");
+            console.log('yo');
+            var ref = data.ref("usc").orderByKey();
             ref.once("value")
-  ref.child("snap-vote-77029/usc").once("value").then(function(snapshot) {
-    for (var key in snapshot.val()) {
-    console.log("ddd");
-      for (var key2 in snapshot.val()[key]) {
-      
+            .then(function(snapshot){
+              console.log('yo2');
+              snapshot.forEach(function(childSnapshot){
+                var key = childSnapshot.key;
+                var childData = childSnapshot.val();
+                
+                var src = childData.profile_picture;
+                console.log(src);
 
-      }
-    
-}
+                var img = document.createElement("img");
+                img.src = src;
+                document.body.appendChild(img);
 
-});
+                localStorage.setItem(num, src);
+                num++;
+              });
+            });
+//   ref.child("snap-vote-77029/usc").once("value").then(function(snapshot) {
+//     for (var key in snapshot.val()) {
+//         console.log(key);   
+// }
 
-UCRef.on('value', snapshot => {
-      this.setState({usercount: snapshot.val()});
-    });
+// });
 
-firebase.database().ref('snap-vote-77029/').once('value', function (snapshot) {
-        console.log(snapshot.val())
-    });
+
+
 
  }
 
@@ -62,14 +73,14 @@ firebase.database().ref('snap-vote-77029/').once('value', function (snapshot) {
         }}
       >
 
-      
 
-    
+
 
           <img
             style={{ width: "100px" }}
-            src={localStorage.getItem("userSnap")}
+            src={localStorage.getItem(num)}
           />
+        
         </div>
       
 
