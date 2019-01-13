@@ -3,7 +3,7 @@ window.snapKitInit = function () {
   // Mount Login Button
   snap.loginkit.mountButton(loginButtonIconId, {
     clientId: "b05d25df-3fea-49f3-b6a2-d1af002ce3dc",
-    redirectURI: "https://snap-vote.herokuapp.com/users",
+    redirectURI: "http://localhost:3000/users",//https://snap-vote.herokuapp.com/users
     scopeList: ["user.display_name", "user.bitmoji.avatar"],
     handleResponseCallback: function () {
       snap.loginkit

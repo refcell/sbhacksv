@@ -6,6 +6,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.2.1",
+    "deepai": "^1.0.0",
     "dotenv": "^6.2.0",
     "firebase": "^5.7.3",
     "font-awesome": "^4.7.0",
