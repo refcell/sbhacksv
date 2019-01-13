@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import firebase from 'firebase';
+import React, { Component } from 'react';
+//import logo from './logo.svg';
 
+import firebase from "firebase";
 
 const config = {
       apiKey: "AIzaSyCbRZwXF2eXe2DpLNeWBDW8N4I8WDOVge8",
@@ -16,19 +17,118 @@ const config = {
 var data = firebase.database();
 var num = 0;
 
-
-
-
-
-
-
 class Users extends Component {
+ constructor() {
+   super();
+   this.state = {
+     username: localStorage.getItem("userName"),
+     currentItem: '',
+     picture: localStorage.getItem("userSnap"),
+     items: []
+   }
+   this.handleChange = this.handleChange.bind(this);
+   this.handleSubmit = this.handleSubmit.bind(this);
+ }
+ handleSubmit(e) {
+   e.preventDefault();
+   const itemsRef = firebase.database().ref('items');
+   const item = {
+     title: this.state.currentItem,
+     user: this.state.username,
+     pic: this.state.picture
+   }
+   itemsRef.push(item);
+   this.setState({
+     currentItem: '',
+     username: ''
+   });
+   itemsRef.on('value', (snapshot) => {
+     console.log(snapshot.val());
+   });
+ }
+ handleChange(e) {
+   this.setState({
+     [e.target.name]: e.target.value
+   });
+ }
+ componentDidMount() {
+   const itemsRef = firebase.database().ref('items');
+   itemsRef.on('value', (snapshot) => {
+     let items = snapshot.val();
+     let newState = [];
+     for (let item in items) {
+       newState.push({
+         id: item,
+         title: items[item].title,
+         user: items[item].user,
+         pic: items[item].pic
+       });
+     }
+     this.setState({
+       items: newState
+     });
+   });
+ }
+ render() {
+   return (
+     <div className='app'>
+       <header>
+           <div className='wrapper'>
+             <h1>Snap Vote</h1>
+           </div>
+       </header>
+       <div className='container'>
+         <section className="add-item">
+         <p>Vims or Emacs? </p>
+           <form onSubmit={this.handleSubmit}>
+             <input type="text" name="currentItem" placeholder="Why? (optional)" onChange={this.handleChange} value={this.state.currentItem} />
+             <p2>You can only vote once!</p2>
+             <button>Send</button>
+           </form>
+         </section>
+         </div>
+         <div
+      >
+         <section className='display-item'>
+                    <div
+        style={{
+          textAlign: "center",
+          verticalAlign: "middle",
+          display: "table-cell"
+        }}
+      >
+             <ul>
+               {this.state.items.map((item) => {
+                 return (
+                   <li key={item.id}>
+                     <h3>{item.title}</h3>
+                     <p><img src ={item.pic} /> 
+                        <h4>{item.user} </h4></p>
+                   </li>
+                 )
+               })}
+             </ul>
+           </div>
+         </section>
+       </div>
+     </div>
+   );
+ }
+}
+export default Users;
+
+
+
+
+
+//class Users extends Component {
+  /*
   componentDidMount() {
-            console.log('yo');
+            
             var ref = data.ref("usc").orderByKey();
             ref.once("value")
             .then(function(snapshot){
-              console.log('yo2');
+             
               snapshot.forEach(function(childSnapshot){
                 var key = childSnapshot.key;
                 var childData = childSnapshot.val();
@@ -38,10 +138,12 @@ class Users extends Component {
 
                 var img = document.createElement("img");
                 img.src = src;
-                document.body.appendChild(img);
+
+                document.querySelector('div.x').appendChild(img);
+                
 
                 localStorage.setItem(num, src);
-                num++;
+                
               });
             });
 //   ref.child("snap-vote-77029/usc").once("value").then(function(snapshot) {
@@ -53,7 +155,7 @@ class Users extends Component {
 
 
 
-
+/*
  }
 
   render() {
@@ -65,7 +167,7 @@ class Users extends Component {
 
 
     return (
-      <div
+      <div class="x"
         style={{
           textAlign: "center",
           verticalAlign: "middle",
@@ -76,11 +178,7 @@ class Users extends Component {
 
 
 
-          <img
-            style={{ width: "100px" }}
-            src={localStorage.getItem(num)}
-          />
-        
+          
         </div>
       
 
@@ -91,3 +189,4 @@ class Users extends Component {
 }
 
 export default Users;
+*/

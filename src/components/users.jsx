@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import firebase from 'firebase';
 
 
@@ -15,11 +16,8 @@ firebase.initializeApp(config);
 
 var data = firebase.database();
 
-var nme = localStorage.getItem("userSnap");
-nme = nme.replace('https://sdk.bitmoji.com/render/panel/', '');
-console.log(nme);
-nme = nme.substring(0, nme.indexOf('.'));
-console.log(nme);
+var nme = localStorage.getItem("userName");
+
 
 
 class Users extends Component {
@@ -42,6 +40,9 @@ class Users extends Component {
         <h1 className="mb-4">Better School?</h1>
         <div style={{ textAlign: "center" }}>
           <div className="mb-4">
+
+         
+
             <button
               className="btn m-2 btn-lg btn-outline-danger"
               style={btnStyle}
