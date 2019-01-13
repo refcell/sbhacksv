@@ -1,11 +1,11 @@
-window.snapKitInit = function() {
+window.snapKitInit = function () {
   var loginButtonIconId = "my-login-button-target";
   // Mount Login Button
   snap.loginkit.mountButton(loginButtonIconId, {
     clientId: "b05d25df-3fea-49f3-b6a2-d1af002ce3dc",
     redirectURI: "http://localhost:3000/users",
     scopeList: ["user.display_name", "user.bitmoji.avatar"],
-    handleResponseCallback: function() {
+    handleResponseCallback: function () {
       snap.loginkit
         .fetchUserInfo()
         .then(data => {
@@ -13,8 +13,6 @@ window.snapKitInit = function() {
           localStorage.setItem("userName", data.data.me.displayName);
           console.log("User info:", data);
           window.location = "/users";
-          window.history.back();
-          window.history.forward();
         })
         .catch(e => {
           console.log(e);
@@ -27,7 +25,7 @@ window.snapKitInit = function() {
 };
 
 // Load the SDK asynchronously
-(function(d, s, id) {
+(function (d, s, id) {
   var js,
     sjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
