@@ -24,7 +24,7 @@ window.snapKitInit = function () {
   $(".f8ario5").css("padding-left", "0px");
 };
 
-// Load the SDK asynchronously
+// Load SDK asynchronously
 (function (d, s, id) {
   var js,
     sjs = d.getElementsByTagName(s)[0];
