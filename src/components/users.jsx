@@ -18,27 +18,6 @@ var nme = localStorage.getItem("userName");
 
 console.log(nme);
 
-
-import firebase from 'firebase';
-
-
-const config = {
-  apiKey: "AIzaSyCbRZwXF2eXe2DpLNeWBDW8N4I8WDOVge8",
-  authDomain: "snap-vote-77029.firebaseapp.com",
-  databaseURL: "https://snap-vote-77029.firebaseio.com",
-  projectId: "snap-vote-77029",
-  storageBucket: "snap-vote-77029.appspot.com",
-  messagingSenderId: "332977921881"
-};
-
-firebase.initializeApp(config);
-
-var data = firebase.database();
-
-var nme = localStorage.getItem("userName");
-
-
-
 class Users extends Component {
   componentDidMount() { }
 
