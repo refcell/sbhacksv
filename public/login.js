@@ -6,16 +6,16 @@ window.snapKitInit = function () {
     redirectURI: "https://snap-vote.herokuapp.com/users",
     scopeList: ["user.display_name", "user.bitmoji.avatar"],
     handleResponseCallback: function () {
-      snap.loginkit
-        .fetchUserInfo()
-        .then(async data => {
-          localStorage.setItem("userSnap", data.data.me.bitmoji.avatar);
-          localStorage.setItem("userName", data.data.me.displayName);
-          location = "/users";
-        })
-        .catch(e => {
-          console.log(e);
-        });
+      snap.loginkit.fetchUserInfo().then(data => {
+        localStorage.setItem("userSnap", data.data.me.bitmoji.avatar);
+        console.log("User info:", data);
+        window.location = "/voted";
+      });
+      snap.loginkit.fetchUserInfo().then(data => {
+        localStorage.setItem("userName", data.data.me.displayName);
+        console.log("User info:", data);
+        window.location = "/voted";
+      });
     }
   });
   $(".fp5nm8g").css("height", "50px");

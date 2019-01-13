@@ -19,7 +19,29 @@ var nme = localStorage.getItem("userName");
 console.log(nme);
 
 
+import firebase from 'firebase';
+
+
+const config = {
+  apiKey: "AIzaSyCbRZwXF2eXe2DpLNeWBDW8N4I8WDOVge8",
+  authDomain: "snap-vote-77029.firebaseapp.com",
+  databaseURL: "https://snap-vote-77029.firebaseio.com",
+  projectId: "snap-vote-77029",
+  storageBucket: "snap-vote-77029.appspot.com",
+  messagingSenderId: "332977921881"
+};
+
+firebase.initializeApp(config);
+
+var data = firebase.database();
+
+var nme = localStorage.getItem("userName");
+
+
+
 class Users extends Component {
+  componentDidMount() { }
+
   render() {
     const btnStyle = {
       borderWidth: "2px",
@@ -37,6 +59,9 @@ class Users extends Component {
         <h1 className="mb-4">Better School?</h1>
         <div style={{ textAlign: "center" }}>
           <div className="mb-4">
+
+
+
             <button
               className="btn m-2 btn-lg btn-outline-danger"
               style={btnStyle}
@@ -47,7 +72,7 @@ class Users extends Component {
                     profile_picture: localStorage.getItem("userSnap"),
                   }
                 });
-                test();
+                window.location.replace("http://localhost:3000/voted");
 
               }}
             >
@@ -77,6 +102,9 @@ class Users extends Component {
           <img
             style={{ width: "100px" }}
             src={localStorage.getItem("userSnap")}
+          />
+          <img
+            src="https://accounts.snapchat.com/accounts/snapcodes?type=svg"
           />
         </div>
       </div>
