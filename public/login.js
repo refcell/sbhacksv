@@ -10,6 +10,7 @@ window.snapKitInit = function() {
         .fetchUserInfo()
         .then(data => {
           localStorage.setItem("userSnap", data.data.me.bitmoji.avatar);
+          localStorage.setItem("userName", data.data.me.displayName);
           console.log("User info:", data);
           window.location = "/users";
           window.history.back();
