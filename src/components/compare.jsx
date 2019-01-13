@@ -9,7 +9,7 @@ class Compare extends Component {
     handleSubmit = (inputText) => {
         console.log("comparing...");
         this.setState({ compareResult: deepAIResult(inputText) });
-        console.log(this.compareResult);
+        console.log(this.state.compareResult);
     }
     handleChange = ({ value }) => {
         this.setState({ inputText: value });
