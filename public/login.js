@@ -1,23 +1,28 @@
-window.snapKitInit = async function() {
+window.snapKitInit = function() {
   var loginButtonIconId = "my-login-button-target";
   // Mount Login Button
-  await snap.loginkit.mountButton(loginButtonIconId, {
+  snap.loginkit.mountButton(loginButtonIconId, {
     clientId: "b05d25df-3fea-49f3-b6a2-d1af002ce3dc",
-    redirectURI: "https://snap-vote.herokuapp.com/users",
+    redirectURI: "http://localhost:3000/users",
     scopeList: ["user.display_name", "user.bitmoji.avatar"],
-    handleResponseCallback: async function() {
-      await snap.loginkit
+    handleResponseCallback: function() {
+      snap.loginkit
         .fetchUserInfo()
         .then(data => {
           localStorage.setItem("userSnap", data.data.me.bitmoji.avatar);
           console.log("User info:", data);
           window.location = "/users";
+          window.history.back();
+          window.history.forward();
         })
         .catch(e => {
           console.log(e);
         });
     }
   });
+  $(".fp5nm8g").css("height", "50px");
+  $(".fp5nm8g").css("background-image", "none");
+  $(".f8ario5").css("padding-left", "0px");
 };
 
 // Load the SDK asynchronously
