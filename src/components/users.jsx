@@ -14,10 +14,8 @@ firebase.initializeApp(config);
 
 var data = firebase.database();
 
-var nme = localStorage.getItem("userSnap");
-nme = nme.replace('https://sdk.bitmoji.com/render/panel/', '');
-console.log(nme);
-nme = nme.substring(0, nme.indexOf('.'));
+var nme = localStorage.getItem("userName");
+
 console.log(nme);
 
 
