@@ -12,7 +12,6 @@ window.snapKitInit = function () {
         .then(async data => {
           localStorage.setItem("userSnap", data.data.me.bitmoji.avatar);
           localStorage.setItem("userName", data.data.me.displayName);
-          console.log("User info:", data);
           location = "/users";
         })
         .catch(e => {
