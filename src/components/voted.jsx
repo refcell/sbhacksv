@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 
 import firebase from "firebase";
 
+
+
 const config = {
       apiKey: "AIzaSyCbRZwXF2eXe2DpLNeWBDW8N4I8WDOVge8",
       authDomain: "snap-vote-77029.firebaseapp.com",
@@ -54,18 +56,34 @@ class Users extends Component {
      [e.target.name]: e.target.value
    });
  }
- handleRoll(e){
-console.log("dafd");
-  e.src = "https://feelinsonice-hrd.appspot.com/web/deeplink/snapcode?username=akhil_arun&type=SVG";
 
-
- }
  componentDidMount() {
    const itemsRef = firebase.database().ref('items');
    itemsRef.on('value', (snapshot) => {
      let items = snapshot.val();
      let newState = [];
+     var num = 0;
+     var length = 0;
+
+     for (let item in items)
+     {
+      length=length+1;
+     }
+
+
+     if (length > 5)
+     {
+      var temp = length-5;
+    }
+
+    console.log(temp);
+
+
+
+
      for (let item in items) {
+      if (num >= temp)
+      {
        newState.push({
          id: item,
          title: items[item].title,
@@ -74,6 +92,9 @@ console.log("dafd");
          code: items[item].code
 
        });
+       
+     }
+     num = num+1;
      }
      this.setState({
        items: newState
@@ -82,6 +103,7 @@ console.log("dafd");
  }
  render() {
    return (
+
      <div className='app'>
        <header>
            <div className='wrapper'>
@@ -90,12 +112,12 @@ console.log("dafd");
        </header>
        <div className='container'>
          <section className="add-item">
-         <p>Vims or Emacs? </p>
+         <p>Will the Patriots win the superbowl? [Twitter] </p>
            <form onSubmit={this.handleSubmit}>
-             <input type="text" name="currentItem" placeholder="Why? (optional)" onChange={this.handleChange} value={this.state.currentItem} />
-             <input type="text" name="curCode" placeholder="Snap User" onChange={this.handleChange} value={this.state.curCode} />
-             <p2>You can only vote once!</p2>
-             <button>Send</button>
+             <input type="text" name="currentItem" placeholder="Why? " onChange={this.handleChange} value={this.state.currentItem} />
+             <input type="text" name="curCode" placeholder="Snap ID (optional)" onChange={this.handleChange} value={this.state.curCode} />
+             
+             <button>Post</button>
            </form>
          </section>
          </div>
@@ -112,13 +134,15 @@ console.log("dafd");
         style={{
           textAlign: "center",
           verticalAlign: "middle",
-          display: "table-cell"
+          display: "inline"
         }}
       >
-             <ul>
+             <ul >
+             
+
                {this.state.items.map((item) => {
                  return (
-                   <li key={item.id}>
+                   <li key={item.id} style={{ listStyleType: "none" }}>
                      <h3>{item.title}</h3>
                      <p>
                      <img src ={item.pic} 
