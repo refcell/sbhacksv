@@ -13,6 +13,8 @@ window.snapKitInit = function () {
           localStorage.setItem("userName", data.data.me.displayName);
           console.log("User info:", data);
           window.location = "/users";
+          window.history.back();
+          window.history.forward();
         })
         .catch(e => {
           console.log(e);
