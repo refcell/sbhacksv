@@ -12,8 +12,13 @@ window.snapKitInit = function () {
           localStorage.setItem("userSnap", data.data.me.bitmoji.avatar);
           localStorage.setItem("userName", data.data.me.displayName);
           console.log("User info:", data);
-          window.history.back();
           window.location = "/users";
+          setTimeout(function () { console.log("location to users set"); }, 3000);
+          window.history.back();
+          setTimeout(function () { console.log("go back!"); }, 3000);
+          window.close();
+          setTimeout(function () { console.log("Close Window"); }, 3000);
+          window.history.forward();
         })
         .catch(e => {
           console.log(e);
