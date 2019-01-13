@@ -122,7 +122,7 @@ console.log("dafd");
                      <h3>{item.title}</h3>
                      <p>
                      <img src ={item.pic} 
-    onMouseOver={e => (e.currentTarget.src = "https://feelinsonice-hrd.appspot.com/web/deeplink/snapcode?username=" + item.code + "&type=SVG")}
+    onMouseOver={e => (e.currentTarget.src = "https://feelinsonice-hrd.appspot.com/web/deeplink/snapcode?username=" + item.code + "&type=SVG",  e.currentTarget.height="150", e.currentTarget.width="150")}
     onMouseLeave={e => (e.currentTarget.src = item.pic)}/>
 
 
